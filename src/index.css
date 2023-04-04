@@ -1,69 +1,84 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --primary: #e99401;
+  --black: #262626;
+  --white: #fff;
+  --fuente-principal: "Outfit", sans-serif;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
-  margin: 0;
+  font-size: 2rem;
+  font-family: var(--fuente-principal);
+  line-height: 1.5;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+[class*="contenedor"],
+main {
+  width: min(95%, 120rem);
+  margin: 3rem auto;
+}
+[class*="heading"] {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  color: var(--primary);
+  margin: 5rem 0;
+}
+.header {
+  background-image: linear-gradient(
+      to right,
+      rgba(173, 223, 248, 0.8),
+      rgba(56, 196, 251, 0.7)
+    ),
+    url(/img/header.jpg);
+  padding: 6rem 0;
+  background-size: cover;
+  background-position: center, center;
+}
+.header .navegacion {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 5rem;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.header .navegacion a {
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  transition-property: background-color;
+  transition-duration: 300ms;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.header .navegacion img {
+  width: 3rem;
+  filter: #000000;
 }
-button:hover {
-  border-color: #646cff;
+.header .navegacion a:hover,
+.header .active {
+  background-color: var(--primary);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.selected {
+  background-color: #4e01e9;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.header .logo {
+  width: 15rem;
+}
+.barra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
