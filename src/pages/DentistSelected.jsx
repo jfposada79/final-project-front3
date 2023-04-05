@@ -1,4 +1,7 @@
 import { useLoaderData } from "react-router-dom"
+import { useContext } from "react"
+import { DentistContext } from "../context/DentistsContext"
+import { toast } from "react-toastify"
 
 export async function loader({ params }) {
   const { id } = params
@@ -8,10 +11,22 @@ export async function loader({ params }) {
   )
   return dentist.json()
 }
+
 const DentistSelected = () => {
   const dentistSelected = useLoaderData()
+  const { dentist, setDentist } = useContext(DentistContext)
+
   const { id, name, email, phone, website } = dentistSelected
 
+  const handleSubmit = () => {
+    if (dentist.some((dentistState) => dentistState.id === id)) {
+      setDentist(dentist)
+      toast.warn("Este Dentista ya hace parte de los favoritos")
+    } else {
+      setDentist([...dentist, dentistSelected])
+      toast.success("Dentista agregado a la lista de favoritos")
+    }
+  }
   return (
     <div className='dentist'>
       <div className='contenido'>
@@ -19,7 +34,7 @@ const DentistSelected = () => {
         <p className='data'> Email: {email}</p>
         <p className='data'>Phone: {phone}</p>
         <p className='website'> Website: {website}</p>
-        <button>Agregar a Favoritos</button>
+        <button onClick={handleSubmit}>Agregar a Favoritos</button>
       </div>
     </div>
   )

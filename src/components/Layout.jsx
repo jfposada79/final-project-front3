@@ -1,6 +1,8 @@
 import { Link, Outlet } from "react-router-dom"
 import logo from "../../public/img/logo.png"
 import Navegation from "./Navegation"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Layout = () => {
   return (
@@ -11,7 +13,7 @@ const Layout = () => {
         </Link>
         <Navegation />
         <Outlet />
-        {/* <ToastContainer /> */}
+        <ToastContainer />
       </div>
     </header>
   )
