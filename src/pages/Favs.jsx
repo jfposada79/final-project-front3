@@ -2,19 +2,17 @@ import { useContext, useState, useEffect } from "react"
 import { DentistContext } from "../context/DentistsContext"
 import "../styles/favs.css"
 const Favs = () => {
-  const { dentist, setDentist } = useContext(DentistContext)
+  const { state, dispatch } = useContext(DentistContext)
   const [total, setTotal] = useState(0)
 
   useEffect(() => {
-    const totalDentists = dentist.length
-    setTotal(totalDentists)
-  }, [dentist])
+    const totalDentists = state.favsDentist.length
 
-  const deleteDentist = (id) => {
-    const destistsUpdated = dentist.filter(
-      (dentistState) => dentistState.id !== id
-    )
-    setDentist(destistsUpdated)
+    setTotal(totalDentists)
+  }, [state.favsDentist])
+
+  const deleteDentist = (item) => {
+    dispatch({ type: "REMOVE_FAVS", payload: item })
   }
 
   return (
@@ -23,9 +21,9 @@ const Favs = () => {
       <div className='contenidoo'>
         <div className='fav-container'>
           <h2>Dentistas</h2>
-          {dentist?.length === 0
+          {state.favsDentist?.length === 0
             ? "No hay dentistas favoritos"
-            : dentist?.map((item) => (
+            : state.favsDentist?.map((item) => (
                 <div className='dentist' key={item.id}>
                   <div>
                     <p className='nombre'>{item.name}</p>
@@ -37,7 +35,7 @@ const Favs = () => {
                   <button
                     type='button'
                     className='btn_eliminar'
-                    onClick={() => deleteDentist(item.id)}
+                    onClick={() => deleteDentist(item)}
                   >
                     X
                   </button>
