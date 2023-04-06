@@ -1,5 +1,13 @@
+import Form from "../components/Form"
 const Contact = () => {
-  return <div>From Contact</div>
+  return (
+    <>
+      <div>
+        <h1 className='heading'>Contáctanos</h1>
+        <Form />
+      </div>
+    </>
+  )
 }
 
 export default Contact
