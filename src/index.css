@@ -97,6 +97,16 @@ main {
   transition-property: background-color;
   transition-duration: 300ms;
 }
+
+@media (max-width: 767px) {
+  .header-dark .navegacion-dark a {
+    font-size: 1.5rem;
+  }
+  .header .navegacion a {
+    font-size: 1.5rem;
+  }
+}
+
 .header .navegacion img {
   width: 3rem;
   filter: #000000;
