@@ -11,13 +11,18 @@
 .fav-container {
   padding: 3rem;
 }
+.fav-container-dark {
+  color: white;
+  padding: 3rem;
+}
+
 .dentist {
   display: grid;
   grid-template-columns: 3fr;
   gap: 4rem;
   align-items: center;
   padding: 3rem 0;
-
+  color: black;
   position: relative;
 }
 
@@ -54,6 +59,14 @@
   border-radius: 1rem;
   position: sticky;
   top: 3rem;
+}
+.resumen-dark {
+  background-color: #04090d;
+  padding: 3rem;
+  border-radius: 1rem;
+  position: sticky;
+  top: 3rem;
+  color: white;
 }
 .btn_eliminar {
   all: unset;

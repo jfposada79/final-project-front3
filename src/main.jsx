@@ -8,6 +8,7 @@ import Contact from "./pages/Contact"
 import DentistSelected, { loader as dentist } from "./pages/DentistSelected"
 import Favs from "./pages/Favs"
 import { DentistProvider } from "./context/DentistsContext"
+import { DarkModeProvider } from "./context/DarkModeContext"
 import "./index.css"
 
 const router = createBrowserRouter([
@@ -42,7 +43,9 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <DentistProvider>
-    <RouterProvider router={router} />
-  </DentistProvider>
+  <DarkModeProvider>
+    <DentistProvider>
+      <RouterProvider router={router} />
+    </DentistProvider>
+  </DarkModeProvider>
 )

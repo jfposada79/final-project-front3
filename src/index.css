@@ -36,6 +36,13 @@ main {
   color: var(--primary);
   margin: 5rem 0;
 }
+[class*="heading-dark"] {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  color: rgb(74, 74, 244);
+  margin: 5rem 0;
+}
 .header {
   background-image: linear-gradient(
       to right,
@@ -47,7 +54,24 @@ main {
   background-size: cover;
   background-position: center, center;
 }
+.header-dark {
+  background-image: linear-gradient(
+      to right,
+      rgba(53, 56, 57, 0.8),
+      rgba(34, 41, 45, 0.7)
+    ),
+    url(/img/header.jpg);
+  padding: 6rem 0;
+  background-size: cover;
+  background-position: center, center;
+}
 .header .navegacion {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 5rem;
+}
+.header-dark .navegacion-dark {
   display: flex;
   align-items: center;
   gap: 5rem;
@@ -63,7 +87,21 @@ main {
   transition-property: background-color;
   transition-duration: 300ms;
 }
+.header-dark .navegacion-dark a {
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
 .header .navegacion img {
+  width: 3rem;
+  filter: #000000;
+}
+.header-dark .navegacion-dark img {
   width: 3rem;
   filter: #000000;
 }
@@ -71,10 +109,17 @@ main {
 .header .active {
   background-color: var(--primary);
 }
+.header-dark .navegacion-dark a:hover,
+.header-dark .active {
+  background-color: var(--primary);
+}
 .selected {
   background-color: #4e01e9;
 }
 .header .logo {
+  width: 15rem;
+}
+.header-dark .logo {
   width: 15rem;
 }
 .barra {
@@ -85,4 +130,9 @@ main {
 .welcome {
   margin-top: 8rem;
   text-align: center;
+}
+.welcome-dark {
+  margin-top: 8rem;
+  text-align: center;
+  color: var(--white);
 }

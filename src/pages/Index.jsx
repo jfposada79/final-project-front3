@@ -1,7 +1,10 @@
+import { useContext } from "react"
+import { DarkModeContext } from "../context/DarkModeContext"
 const Index = () => {
+  const { stateDark } = useContext(DarkModeContext)
   return (
     <div>
-      <p className='welcome'>
+      <p className={stateDark.isDark ? "welcome-dark" : "welcome"}>
         Bienvenidos a nuestra clínica dental, donde nos dedicamos a ofrecer el
         mejor cuidado bucal para ti y tu familia. Nuestro equipo de dentistas
         altamente capacitados y experimentados están aquí para proporcionarte el

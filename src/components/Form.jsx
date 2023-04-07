@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+
+import { DarkModeContext } from "../context/DarkModeContext"
 import Swal from "sweetalert2"
 
 import "../styles/form.css"
@@ -9,6 +11,7 @@ const regex = new RegExp(
 const Form = () => {
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
+  const { stateDark } = useContext(DarkModeContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -40,7 +43,7 @@ const Form = () => {
   }
   return (
     <form className='form-container' onSubmit={handleSubmit} noValidate>
-      <div className='fullName'>
+      <div className={stateDark.isDark ? "fullName-dark" : "fullName"}>
         <label htmlFor='fullName'>Nombre Completo</label>
       </div>
       <input
@@ -49,8 +52,8 @@ const Form = () => {
         name='fullName'
         onChange={(e) => setFullName(e.target.value)}
       />
-      <div className='email'>
-        <label htmlFor='email'>CorreoElectrónico</label>
+      <div className={stateDark.isDark ? "email-dark" : "email"}>
+        <label htmlFor='email'>Correo Electrónico</label>
       </div>
       <input
         type='email'

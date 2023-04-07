@@ -1,8 +1,10 @@
 import { useContext, useState, useEffect } from "react"
 import { DentistContext } from "../context/DentistsContext"
+import { DarkModeContext } from "../context/DarkModeContext"
 import "../styles/favs.css"
 const Favs = () => {
   const { state, dispatch } = useContext(DentistContext)
+  const { stateDark } = useContext(DarkModeContext)
   const [total, setTotal] = useState(0)
 
   useEffect(() => {
@@ -17,9 +19,13 @@ const Favs = () => {
 
   return (
     <main className='contenedor'>
-      <h1 className='heading'>Dentistas Favoritos</h1>
+      <h1 className={stateDark.isDark ? "heading-dark" : "heading"}>
+        Dentistas Favoritos
+      </h1>
       <div className='contenidoo'>
-        <div className='fav-container'>
+        <div
+          className={stateDark.isDark ? "fav-container-dark" : "fav-container"}
+        >
           <h2>Dentistas</h2>
           {state.favsDentist?.length === 0
             ? "No hay dentistas favoritos"
@@ -42,7 +48,7 @@ const Favs = () => {
                 </div>
               ))}
         </div>
-        <aside className='resumen'>
+        <aside className={stateDark.isDark ? "resumen-dark" : "resumen"}>
           <h3>Resumen Dentistas Favoritos</h3>
           <p>Tienes un total de {total}</p>
         </aside>
