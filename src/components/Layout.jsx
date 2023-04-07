@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css"
 import DarkMode from "./DarkMode"
 import { useContext } from "react"
 import { DarkModeContext } from "../context/DarkModeContext"
+import Footer from "./Footer"
 
 const Layout = () => {
   const { stateDark } = useContext(DarkModeContext)
@@ -18,6 +19,7 @@ const Layout = () => {
         </Link>
         <Navegation />
         <Outlet />
+        <Footer />
         <ToastContainer />
       </div>
     </header>
