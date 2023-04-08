@@ -13,6 +13,7 @@ const Layout = () => {
   return (
     <header className={stateDark.isDark ? "header-dark" : "header"}>
       <DarkMode />
+
       <div className='contenedor barra'>
         <Link to='/'>
           <img src={logo} alt='logo' className='logo' />

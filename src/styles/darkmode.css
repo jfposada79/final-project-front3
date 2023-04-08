@@ -1,0 +1,10 @@
+.container-mode {
+  margin-left: 10rem;
+}
+.hidden {
+  display: none;
+}
+
+aside {
+  cursor: pointer;
+}

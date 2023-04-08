@@ -17,15 +17,6 @@ const DentistSelected = () => {
 
   const { name, email, phone, website } = dentistSelected
 
-  // const handleSubmit = () => {
-  //   if (dentist.some((dentistState) => dentistState.id === id)) {
-  //     setDentist(dentist)
-  //     toast.warn("Este Dentista ya hace parte de los favoritos")
-  //   } else {
-  //     setDentist([...dentist, dentistSelected])
-  //     toast.success("Dentista agregado a la lista de favoritos")
-  //   }
-  // }
   const handleSubmit = (item) => {
     dispatch({ type: "ADD_FAVS", payload: item })
   }
@@ -37,7 +28,7 @@ const DentistSelected = () => {
         <p className='data'>Phone: {phone}</p>
         <p className='website'> Website: {website}</p>
         <button onClick={() => handleSubmit(dentistSelected)}>
-          Agregar a Favoritos
+          Add to favorites
         </button>
       </div>
     </div>
